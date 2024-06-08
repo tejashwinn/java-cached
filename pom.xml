@@ -4,24 +4,44 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.codecrafters</groupId>
-    <artifactId>build-your-own-redis</artifactId>
+    <groupId>com.tejashwin</groupId>
+    <name>Java Cached</name>
+    <artifactId>java-cached</artifactId>
     <version>1.0</version>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--Project Properties-->
         <java.version>21</java.version>
-    </properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <!--Dependencies Version Properties-->
+        <lombok.version>1.18.32</lombok.version>
+        <log4j.verion>2.23.1</log4j.verion>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.verion}</version>
+        </dependency>
+
+    </dependencies>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
-                    <finalName>java_redis</finalName> <!-- Please do not change this final artifact name-->
+                    <finalName>javached</finalName> <!-- Please do not change this final artifact name-->
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
@@ -30,7 +50,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <!-- This is the main class of your program which will be executed-->
-                            <mainClass>Main</mainClass>
+                            <mainClass>com.tejashwin.javacached.JavaCached</mainClass>
                         </manifest>
                     </archive>
                     <outputDirectory>${dir}</outputDirectory>
