@@ -7,13 +7,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class JavaCached {
 
-    private JavaCached() {
-        throw new StaticClassInitException(JavaCached.class.getName());
-    }
+  private JavaCached() {
+    throw new StaticClassInitException(JavaCached.class.getName());
+  }
 
-    public static void main(String[] args) {
-        JavaCachedApplication.run(args);
-    }
-
-
+  public static void main(String[] args) {
+    JavaCachedApplication.run(args);
+  }
 }
