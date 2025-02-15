@@ -6,7 +6,7 @@
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
         </Console>
         <!-- File Appender -->
-        <File name="File" fileName="logs/server/app.log" append="true">
+        <File name="File" fileName="/logs/server/app.log" append="true">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
         </File>
     </Appenders>

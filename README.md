@@ -1,1 +1,1 @@
-Redis Implementation in Java
+Key-Value store implementation in Java
