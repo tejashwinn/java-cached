@@ -3,10 +3,10 @@
     <Appenders>
         <!-- Console Appender -->
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
         </Console>
         <!-- File Appender -->
-        <File name="File" fileName="logs/app.log" append="true">
+        <File name="File" fileName="logs/client/app.log" append="true">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
         </File>
     </Appenders>
@@ -17,7 +17,7 @@
             <AppenderRef ref="File"/>
         </Root>
         <!-- Application Loggers -->
-        <Logger name="com.tejashwin.javacached" level="debug" additivity="false">
+        <Logger name="com.tejashwin.javacached.client" level="debug" additivity="false">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="File"/>
         </Logger>

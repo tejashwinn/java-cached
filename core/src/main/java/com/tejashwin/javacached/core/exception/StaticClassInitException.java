@@ -1,4 +1,4 @@
-package com.tejashwin.javacached.exception;
+package com.tejashwin.javacached.core.exception;
 
 public class StaticClassInitException extends RuntimeException {
 
