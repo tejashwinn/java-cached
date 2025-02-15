@@ -1,13 +1,12 @@
 package com.tejashwin.javacached;
 
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.charset.StandardCharsets;
 
-@Log4j2
+@Slf4j
 public class JavaCached {
 
     public static void main(String[] args) {
@@ -19,12 +18,11 @@ public class JavaCached {
             serverSocket.setReuseAddress(true);
             // Wait for connection from client.
             Socket clientSocket = serverSocket.accept();
-            while (true) {
-                clientSocket.getOutputStream().write("PONG".getBytes(StandardCharsets.UTF_8));
-            }
+
         } catch (IOException e) {
             log.error(e.getMessage(), e);
+        } finally {
+            log.info("Stopped java cached");
         }
-
     }
 }

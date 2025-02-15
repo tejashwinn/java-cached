@@ -19,7 +19,7 @@
 
         <!--Dependencies Version Properties-->
         <lombok.version>1.18.32</lombok.version>
-        <log4j.verion>2.23.1</log4j.verion>
+        <log4j.verion>2.20.0</log4j.verion>
     </properties>
     <dependencies>
         <dependency>
@@ -33,7 +33,16 @@
             <artifactId>log4j-core</artifactId>
             <version>${log4j.verion}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.verion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j.verion}</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
