@@ -3,17 +3,52 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.tejashwin</groupId>
+        <artifactId>java-cached</artifactId>
+        <version>1.0</version>
+    </parent>
 
-    <groupId>com.tejashwin</groupId>
-    <packaging>pom</packaging>
-    <name>Java Cached</name>
-    <modules>
-        <module>server</module>
-        <module>client</module>
-        <module>core</module>
-    </modules>
-    <artifactId>java-cached</artifactId>
-    <version>1.0</version>
+    <artifactId>core</artifactId>
+
+    <properties>
+        <!--Project Properties-->
+        <java.version>21</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!--Java Properties-->
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <!--Dependencies Version Properties-->
+        <lombok.version>1.18.32</lombok.version>
+        <log4j.verion>2.20.0</log4j.verion>
+        <google-java-format.version>1.25.2</google-java-format.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.verion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.verion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j.verion}</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
@@ -21,7 +56,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
-                    <finalName>javached-server</finalName> <!-- Please do not change this final artifact name-->
+                    <finalName>javached-core</finalName> <!-- Please do not change this final artifact name-->
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
@@ -61,4 +96,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
