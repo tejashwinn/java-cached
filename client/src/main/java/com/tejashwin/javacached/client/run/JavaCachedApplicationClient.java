@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.Arrays;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -26,9 +27,13 @@ public class JavaCachedApplicationClient {
   }
 
   private static void doSomething(Socket socket) {
+    Arrays.stream(new String[] {"Hello!", "Hi!", "Adios!"}).forEach(e -> sendRequest(socket, e));
+  }
+
+  private static void sendRequest(Socket socket, String message) {
     try {
       ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
-      outputStream.writeObject("Hello!!");
+      outputStream.writeObject(message);
       ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
       String str = (String) inputStream.readObject();
       log.info("Server({}) says: {}", socket.getInetAddress(), str);
